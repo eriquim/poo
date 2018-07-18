@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufrn.aula01.model.Conta;
-import br.ufrn.aula01.model.Item;
 
 /**
  * @author eriquim
