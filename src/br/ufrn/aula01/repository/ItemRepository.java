@@ -20,15 +20,14 @@ import br.ufrn.aula01.model.Item;
 public class ItemRepository extends AbstractRepository<Item> {
 	@Override
 	public void add(Item obj) {
-		String sql = "insert into public3.item(id_item,marca, descricao, valor) values (?,?,?,?)";
+		String sql = "insert into public3.item(marca, descricao, valor) values (?,?,?)";
 		PreparedStatement pst = null;
 		try {
 			try {
 				pst = getConnection().prepareStatement(sql);
-				pst.setInt(1, obj.getId());
-				pst.setString(2, obj.getMarca());
-				pst.setString(3, obj.getDescricao());
-				pst.setDouble(4, obj.getValor());
+				pst.setString(1, obj.getMarca());
+				pst.setString(2, obj.getDescricao());
+				pst.setDouble(3, obj.getValor());
 				pst.execute();
 			} finally {
 				pst.close();

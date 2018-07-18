@@ -19,19 +19,18 @@ public class GarconRepository extends AbstractRepository<Garcon> {
 
 	@Override
 	public void add(Garcon obj) {
-		String sql = "insert into public3.garcon(id_garcon,nome, cpf , endereco, telefone, carteira_trabalho, matricula, salario) values (?,?,?,?,?,?,?,?)";
+		String sql = "insert into public3.garcon(nome, cpf , endereco, telefone, carteira_trabalho, matricula, salario) values (?,?,?,?,?,?,?)";
 		PreparedStatement pst = null;
 		try {
 			try {
 				pst = getConnection().prepareStatement(sql);
-				pst.setInt(1, obj.getId());
-				pst.setString(2, obj.getNome());
-				pst.setString(3, obj.getCpf());
-				pst.setString(4, obj.getEndereco());
-				pst.setString(5, obj.getTelefone());
-				pst.setString(6, obj.getCarteiraTrabalho());
-				pst.setString(7, obj.getMatricula());
-				pst.setDouble(8, obj.getSalario());
+				pst.setString(1, obj.getNome());
+				pst.setString(2, obj.getCpf());
+				pst.setString(3, obj.getEndereco());
+				pst.setString(4, obj.getTelefone());
+				pst.setString(5, obj.getCarteiraTrabalho());
+				pst.setString(6, obj.getMatricula());
+				pst.setDouble(7, obj.getSalario());
 				pst.execute();
 			} finally {
 				pst.close();

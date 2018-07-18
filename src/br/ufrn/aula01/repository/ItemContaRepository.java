@@ -14,15 +14,14 @@ public class ItemContaRepository extends AbstractRepository<ItemConta> {
 
 	@Override
 	public void add(ItemConta obj) {
-		String sql = "insert into public3.item_conta(id_item_conta,id_conta,id_item, quantidade) values (?,?,?,?)";
+		String sql = "insert into public3.item_conta(id_conta,id_item, quantidade) values (?,?,?)";
 		PreparedStatement pst = null;
 		try {
 			try {
 				pst = getConnection().prepareStatement(sql);
-				pst.setInt(1, obj.getId());
-				pst.setInt(2, obj.getConta().getId());
-				pst.setInt(3, obj.getItem().getId());
-				pst.setInt(4, obj.getQuantidade());
+				pst.setInt(1, obj.getConta().getId());
+				pst.setInt(2, obj.getItem().getId());
+				pst.setInt(3, obj.getQuantidade());
 				pst.execute();
 			} finally {
 				pst.close();

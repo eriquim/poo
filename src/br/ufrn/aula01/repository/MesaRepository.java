@@ -12,13 +12,12 @@ public class MesaRepository extends AbstractRepository<Mesa> {
 
 	@Override
 	public void add(Mesa obj) {
-		String sql = "insert into public3.mesa(id_mes,numero) values (?,?)";
+		String sql = "insert into public3.mesa(numero) values (?)";
 		PreparedStatement pst = null;
 		try {
 			try {
 				pst = getConnection().prepareStatement(sql);
-				pst.setInt(1, obj.getId());
-				pst.setInt(2, obj.getNumero());
+				pst.setInt(1, obj.getNumero());
 				pst.execute();
 			} finally {
 				pst.close();

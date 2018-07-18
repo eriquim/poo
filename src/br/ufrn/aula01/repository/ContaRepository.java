@@ -19,16 +19,15 @@ public class ContaRepository extends AbstractRepository<Conta> {
 
 	@Override
 	public void add(Conta obj) {
-		String sql = "insert into public3.conta(id_conta,id_cliente, id_garcon,id_mesa, valor) values (?,?,?,?,?)";
+		String sql = "insert into public3.conta(id_cliente, id_garcon,id_mesa, valor) values (?,?,?,?)";
 		PreparedStatement pst = null;
 		try {
 			try {
 				pst = getConnection().prepareStatement(sql);
-				pst.setInt(1, obj.getId());
-				pst.setInt(2, obj.getCliente().getId());
-				pst.setInt(3, obj.getGarcon().getId());
-				pst.setInt(4, obj.getMesa().getId());
-				pst.setDouble(5, obj.getValor());
+				pst.setInt(1, obj.getCliente().getId());
+				pst.setInt(2, obj.getGarcon().getId());
+				pst.setInt(3, obj.getMesa().getId());
+				pst.setDouble(4, obj.getValor());
 				pst.execute();
 			} finally {
 				pst.close();

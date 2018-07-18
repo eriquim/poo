@@ -19,18 +19,17 @@ public class ClienteRepository extends AbstractRepository<Cliente> {
 
 	@Override
 	public void add(Cliente obj){
-		String sql = "insert into public3.cliente(credito, id_cliente, cartao_fidelidade, nome , endereco, cpf, telefone ) values (?,?,?,?,?,?,?)";
+		String sql = "insert into public3.cliente(credito, cartao_fidelidade, nome , endereco, cpf, telefone ) values (?,?,?,?,?,?)";
 		PreparedStatement pst = null;
 		try {
 			try {
 				pst = getConnection().prepareStatement(sql);
 				pst.setDouble(1, obj.getCredito());
-				pst.setInt(2, obj.getId());
-				pst.setString(3, obj.getCartaoFidelidade());
-				pst.setString(4, obj.getNome());
-				pst.setString(5, obj.getEndereco());
-				pst.setString(6, obj.getCpf());
-				pst.setString(7, obj.getTelefone());
+				pst.setString(2, obj.getCartaoFidelidade());
+				pst.setString(3, obj.getNome());
+				pst.setString(4, obj.getEndereco());
+				pst.setString(5, obj.getCpf());
+				pst.setString(6, obj.getTelefone());
 				pst.execute();
 			} finally {
 				pst.close();

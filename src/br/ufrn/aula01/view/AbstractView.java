@@ -41,7 +41,6 @@ public abstract class AbstractView<X extends java.util.Observable> implements Ob
 
             if (os.contains("Windows")){
                 Runtime.getRuntime().exec("cls");
-
             }else{
                 Runtime.getRuntime().exec("clear");
             }
