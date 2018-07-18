@@ -38,11 +38,14 @@ public abstract class AbstractRepository<T extends ModelInterface> {
 	    	
 	    }
 	    
-	    public abstract void add(T obj) throws SQLException;
 	    
-	    public abstract void remove(T obj) throws SQLException;
+	    public abstract T findById(Integer id);
+	    
+	    public abstract void add(T obj);
+	    
+	    public abstract void remove(T obj);
 	      
-	    public abstract List<T> listar() throws SQLException;
+	    public abstract List<T> listar();
 
 	    @PreDestroy
 		public void close() {
