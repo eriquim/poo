@@ -6,14 +6,19 @@ import java.util.Scanner;
 import br.ufrn.aula01.controller.ClienteController;
 import br.ufrn.aula01.exemplo.MainTerminal;
 import br.ufrn.aula01.model.Cliente;
+import br.ufrn.aula01.repository.ClienteRepository;
 
 public class ClienteView extends AbstractView<Cliente>{
 	
 	private ClienteController clienteController;
 	
+	private ClienteRepository clienteRepository;
+	
 
 	public ClienteView(Cliente obj) {
 		super(obj,"Cliente");
+		clienteRepository = new ClienteRepository();
+		clienteController = new ClienteController(clienteRepository);
 		clearConsole();
 		StringBuffer menu = new StringBuffer(" ****** Mesdibah - Menu Cliente ******\n");
 	    menu.append(" * 1 -> Inserir  *\n");
@@ -21,7 +26,7 @@ public class ClienteView extends AbstractView<Cliente>{
 	    menu.append(" * 3 -> Listar *\n");
 	    menu.append(" * 0 -> Sair *\n");
 	    menu.append(" ********************************************\n");
-	    menu.append("Informe somente uma das opções acima: ");
+	    menu.append("Informe somente uma das opï¿½ï¿½es acima: ");
 	    setMenu(menu.toString());
 	    iniciarLeitura();
 	    
@@ -40,16 +45,16 @@ public class ClienteView extends AbstractView<Cliente>{
                  System.out.print("Informe um cpf: ");
                  getObj().setCpf(clienteScanner.nextLine());
 
-                 System.out.print("Informe um endereço: ");
+                 System.out.print("Informe um endereï¿½o: ");
                  getObj().setEndereco(clienteScanner.nextLine());
 
 				 System.out.print("Informe um telefone: ");
                  getObj().setTelefone(clienteScanner.nextLine());
 
-                 System.out.print("Informe um cartão fidelidade: ");
+                 System.out.print("Informe um cartï¿½o fidelidade: ");
                  getObj().setCartaoFidelidade(clienteScanner.nextLine());
 
-                 System.out.print("Informe um crédito: ");
+                 System.out.print("Informe um crï¿½dito: ");
                  getObj().setCredito(clienteScanner.nextDouble());
                  
                  clienteController.salvar(getObj());
@@ -76,7 +81,7 @@ public class ClienteView extends AbstractView<Cliente>{
                  clearConsole();
                  MainTerminal.main(null);
              default:
-                 System.out.print(" Essa não é uma opcao Válida ");
+                 System.out.print(" Essa nï¿½o ï¿½ uma opcao Vï¿½lida ");
                  break;
          }
 	}
