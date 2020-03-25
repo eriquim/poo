@@ -68,7 +68,7 @@ public class ClienteRepository extends AbstractRepository<Cliente> {
 			pst = getConnection().prepareStatement(sql);
 			ResultSet rs = pst.executeQuery();
 			try {
-				if (rs.next()) {
+				while (rs.next()) {
 					Cliente cliente = new Cliente();
 					cliente.setId(rs.getInt("id_cliente"));
 					cliente.setNome(rs.getString("nome"));

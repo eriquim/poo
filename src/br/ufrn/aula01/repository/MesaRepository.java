@@ -56,7 +56,7 @@ public class MesaRepository extends AbstractRepository<Mesa> {
 			pst = getConnection().prepareStatement(sql);
 			ResultSet rs = pst.executeQuery();
 			try {
-				if (rs.next()) {
+				while (rs.next()) {
 					Mesa mesa = new Mesa();
 					mesa.setId(rs.getInt("id_mesa"));
 					mesa.setNumero(rs.getInt("numero"));

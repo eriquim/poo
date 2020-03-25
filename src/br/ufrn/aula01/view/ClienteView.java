@@ -26,7 +26,7 @@ public class ClienteView extends AbstractView<Cliente>{
 	    menu.append(" * 3 -> Listar *\n");
 	    menu.append(" * 0 -> Sair *\n");
 	    menu.append(" ********************************************\n");
-	    menu.append("Informe somente uma das op��es acima: ");
+	    menu.append("Informe somente uma das opções acima: ");
 	    setMenu(menu.toString());
 	    iniciarLeitura();
 	    
@@ -45,16 +45,16 @@ public class ClienteView extends AbstractView<Cliente>{
                  System.out.print("Informe um cpf: ");
                  getObj().setCpf(clienteScanner.nextLine());
 
-                 System.out.print("Informe um endere�o: ");
+                 System.out.print("Informe um endereço: ");
                  getObj().setEndereco(clienteScanner.nextLine());
 
 				 System.out.print("Informe um telefone: ");
                  getObj().setTelefone(clienteScanner.nextLine());
 
-                 System.out.print("Informe um cart�o fidelidade: ");
+                 System.out.print("Informe um cartão fidelidade: ");
                  getObj().setCartaoFidelidade(clienteScanner.nextLine());
 
-                 System.out.print("Informe um cr�dito: ");
+                 System.out.print("Informe um crédito: ");
                  getObj().setCredito(clienteScanner.nextDouble());
                  
                  clienteController.salvar(getObj());
@@ -81,15 +81,13 @@ public class ClienteView extends AbstractView<Cliente>{
                  clearConsole();
                  MainTerminal.main(null);
              default:
-                 System.out.print(" Essa n�o � uma opcao V�lida ");
+                 System.out.print(" Essa não é uma opcao Válida ");
                  break;
          }
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 	

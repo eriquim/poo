@@ -70,7 +70,7 @@ public class GarconRepository extends AbstractRepository<Garcon> {
 			pst = getConnection().prepareStatement(sql);
 			ResultSet rs = pst.executeQuery();
 			try {
-				if (rs.next()) {
+				while(rs.next()) {
 					
 					Garcon garcon = new Garcon();
 					garcon.setId(rs.getInt("id_garcon"));
